@@ -1,0 +1,22 @@
+Name:                Mandelbrot
+Version:             0.1
+Synopsis:            Parallel mandelbrot
+Description:         A threaded mandelbrot generator
+License:             AllRightsReserved
+Author:              taktoa
+Maintainer:          taktoa@gmail.com
+Stability:           Experimental
+Category:            Web
+Build-type:          Simple
+Cabal-version:       >=1.2
+
+Executable mandelbrot
+  hs-source-dirs: src
+  main-is: Main.hs
+--  ghc-options: -threaded -Wall -O2 -fhpc -fprof-auto -fno-prof-count-entries -rtsopts -optc-O2 -optc-mfpmath=sse -optc-msse2
+  ghc-options: -threaded -Wall -O3 -optc-ffast-math -optc-march=corei7-avx -rtsopts -optc-mavx -optc-msse2avx -fexcess-precision -optc-O3
+  build-depends:
+    base,
+    repa,
+    repa-io,
+    configurator
